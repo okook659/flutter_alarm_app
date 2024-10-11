@@ -6,8 +6,17 @@ class AlarmItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(text),
+    return Container(
+      decoration: BoxDecoration(
+      ),
+      child: ListTile(
+        tileColor: Colors.white,
+        title: Text(text,
+        style: const TextStyle(
+          fontSize: 50,
+        ),
+        ),
+      ),
     );
   }
 }

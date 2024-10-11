@@ -42,6 +42,7 @@ dependencies:
   one_clock: ^2.0.1
   table_calendar: ^3.1.2
   device_calendar: ^4.3.3
+  curved_navigation_bar: ^1.0.6
 
 dev_dependencies:
   flutter_test:

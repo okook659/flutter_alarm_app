@@ -34,32 +34,12 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
+    return  SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(top : 20.0),
           child: Column(
             children: [
-              // Container(
-              //   decoration: BoxDecoration(
-              //     color: Colors.black,
-              //     borderRadius: BorderRadius.circular(20) 
-              //   ),
-              //   child: Padding(
-              //     padding: const EdgeInsets.only(left : 28.0, right: 28.0, top: 8.0, bottom: 8.0),
-              //     child: Text("Clock", style: TextStyle(
-              //       color: Colors.white,
-              //       fontSize: 30,
-              //       fontStyle: FontStyle.italic,
-              //     ),),
-              //   ),
-              // ),
-              Text("Clock", style: TextStyle(
-                fontSize: 30,
-              )),
-              SizedBox(
-                height: 30,
-              ),
+ 
               Container(
                 width: 300,
                 height: 300,
@@ -82,33 +62,44 @@ class _HomePageState extends State<HomePage> {
                   datetime: DateTime.now(),
                 ),
               ),
-              Container(
-                // height: 1000,
-                child: TableCalendar(
-                  headerVisible: true,
-                  headerStyle: const HeaderStyle(
-                    formatButtonVisible: true,
+              SizedBox(
+                height: 30,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16),
+                  color: Colors.white,
+                ),
+                  child: TableCalendar(
+                    headerVisible: true,
+                    headerStyle: const HeaderStyle(
+                      formatButtonVisible: true,
+                    ),
+                    daysOfWeekStyle: const DaysOfWeekStyle(
+                      weekdayStyle: TextStyle(color: Colors.purple),
+                      weekendStyle: TextStyle(color: Colors.red),
+                    ),
+                    calendarStyle: CalendarStyle(
+                      
+                    ),
+                    firstDay: DateTime.utc(2010, 10, 16),
+                    lastDay: DateTime.utc(2030, 10, 16),
+                    focusedDay: _focusedDay,
+                    selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
+                    calendarFormat: _calendarFormat,
+                    onDaySelected: _onDaySelected,
+                    onFormatChanged: _onFormatChanged,
                   ),
-                  daysOfWeekStyle: const DaysOfWeekStyle(
-                    weekdayStyle: TextStyle(color: Colors.purple),
-                    weekendStyle: TextStyle(color: Colors.red),
-                  ),
-                  calendarStyle: CalendarStyle(
-                    
-                  ),
-                  firstDay: DateTime.utc(2010, 10, 16),
-                  lastDay: DateTime.utc(2030, 10, 16),
-                  focusedDay: _focusedDay,
-                  selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
-                  calendarFormat: _calendarFormat,
-                  onDaySelected: _onDaySelected,
-                  onFormatChanged: _onFormatChanged,
                 ),
               ),
+              SizedBox(
+                height: 30,
+              )
             ],
           ),
         ),
-      ),
     );
   }
 }
